@@ -11,11 +11,13 @@ const Letters = () => {
         opacity: 0,
         scale: 3,
         stagger: 0.5,
+        delay: 1,
       },
       {
         opacity: 1,
         scale: 1,
         stagger: 0.5,
+        delay: 1,
       }
     );
   }, []);
