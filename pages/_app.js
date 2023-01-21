@@ -7,13 +7,25 @@ const inter = Inter({ subsets: ["latin"] });
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 
 export default function App({ Component, pageProps }) {
   const [isLoad, setIsLoad] = useState(true);
 
   useEffect(() => {
+    gsap.fromTo(
+      "[data-loader]",
+      {
+        opacity: 0,
+        duration: 5,
+      },
+      {
+        opacity: 1,
+        duration: 5,
+      }
+    );
     setTimeout(() => {
-      setIsLoad(false);
+      // setIsLoad(false);
     }, 1000);
   }, []);
 
@@ -22,7 +34,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyles />
       <main className={inter.className}>
         {isLoad ? (
-          <Loader>
+          <Loader data-loader>
             <BallTriangle
               height={100}
               width={100}
