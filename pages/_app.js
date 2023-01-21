@@ -31,7 +31,11 @@ export default function App({ Component, pageProps }) {
                 color="#93D400"
                 ariaLabel="ball-triangle-loading"
                 wrapperClass={"loader"}
-                wrapperStyle=""
+                wrapperStyle={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100vh",
+                }}
                 visible={true}
               />
             </Loader>
@@ -49,9 +53,9 @@ export default function App({ Component, pageProps }) {
 }
 
 const Loader = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100vh; */
 `;
