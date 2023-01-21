@@ -7,54 +7,44 @@ const inter = Inter({ subsets: ["latin"] });
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import gsap from "gsap";
 
 export default function App({ Component, pageProps }) {
   const [isLoad, setIsLoad] = useState(true);
 
   useEffect(() => {
-    gsap.fromTo(
-      "[data-loader]",
-      {
-        opacity: 0,
-        duration: 5,
-      },
-      {
-        opacity: 1,
-        duration: 5,
-      }
-    );
     setTimeout(() => {
       setIsLoad(false);
     }, 1000);
   }, []);
 
   return (
-    <Theme>
+    <>
       <GlobalStyles />
-      <main className={inter.className}>
-        {isLoad ? (
-          <Loader data-loader>
-            <BallTriangle
-              height={100}
-              width={100}
-              radius={5}
-              color="#93D400"
-              ariaLabel="ball-triangle-loading"
-              wrapperClass={"loader"}
-              wrapperStyle=""
-              visible={true}
-            />
-          </Loader>
-        ) : (
-          <>
-            <Nav />
-            <Component {...pageProps} />
-            <GitBookButton />
-          </>
-        )}
-      </main>
-    </Theme>
+      <Theme>
+        <main className={inter.className}>
+          {isLoad ? (
+            <Loader>
+              <BallTriangle
+                height={100}
+                width={100}
+                radius={5}
+                color="#93D400"
+                ariaLabel="ball-triangle-loading"
+                wrapperClass={"loader"}
+                wrapperStyle=""
+                visible={true}
+              />
+            </Loader>
+          ) : (
+            <>
+              <Nav />
+              <Component {...pageProps} />
+              <GitBookButton />
+            </>
+          )}
+        </main>
+      </Theme>
+    </>
   );
 }
 
