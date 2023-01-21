@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 import GitBookButton from "@/components/GitBookButton";
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
+import gsap from "gsap";
 
 export default function App({ Component, pageProps }) {
   const [isLoad, setIsLoad] = useState(true);

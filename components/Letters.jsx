@@ -42,7 +42,7 @@ const Letters = () => {
 };
 
 const LettersContainer = styled.div`
-  height: calc(100vh - ${rem(90)});
+  height: calc(100% - ${rem(90)});
   display: flex;
   align-items: center;
   justify-content: center;
