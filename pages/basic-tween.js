@@ -1,3 +1,5 @@
+import Card from "@/components/Card";
+import Cards from "@/components/Cards";
 import Head from "next/head";
 
 export default function Basic() {
@@ -9,7 +11,11 @@ export default function Basic() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <></>
+      <Cards>
+        <Card />
+        <Card />
+        <Card />
+      </Cards>
     </>
   );
 }
