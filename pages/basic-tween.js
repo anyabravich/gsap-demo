@@ -3,6 +3,31 @@ import Cards from "@/components/Cards";
 import Head from "next/head";
 
 export default function Basic() {
+  const codes = [
+    `
+gsap
+  .timeline({ paused: true })
+  .from('.timelines__img._bg', { opacity: 0, duration: 1 })
+  .from('.timelines__img._title', { opacity: 0, scale: 0, duration: 1, ease: 'back' })
+  .from('.timelines__img._fred', { yPercent: 150, stagger: 0.1, ease: 'back' }, 'freds')
+  .from('.timelines__img._time', { xPercent: 100, duration: 0.4 }, '<')
+    `,
+    `
+function sum(a, b) {
+  return a + b;
+}
+
+sum();
+    `,
+    `
+gsap
+  .timeline({ paused: true })
+  .from('.timelines__img._bg', { opacity: 0, duration: 1 })
+  .from('.timelines__img._title', { opacity: 0, scale: 0, duration: 1, ease: 'back' })
+  .from('.timelines__img._fred', { yPercent: 150, stagger: 0.1, ease: 'back' }, 'freds')
+  .from('.timelines__img._time', { xPercent: 100, duration: 0.4 }, '<')
+    `,
+  ];
   return (
     <>
       <Head>
@@ -12,9 +37,9 @@ export default function Basic() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Cards>
-        <Card />
-        <Card />
-        <Card />
+        {codes.map((code) => (
+          <Card code={code} />
+        ))}
       </Cards>
     </>
   );

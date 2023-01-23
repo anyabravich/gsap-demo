@@ -13,7 +13,9 @@ const Cards = ({ children }) => {
   );
 };
 
-const CardsWrap = styled.div``;
+const CardsWrap = styled.div`
+  margin-top: ${rem(80)};
+`;
 
 const CardsInner = styled.div`
   display: grid;
