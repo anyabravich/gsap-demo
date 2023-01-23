@@ -37,8 +37,8 @@ gsap
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Cards>
-        {codes.map((code) => (
-          <Card code={code} />
+        {codes.map((code, index) => (
+          <Card code={code} key={index} />
         ))}
       </Cards>
     </>

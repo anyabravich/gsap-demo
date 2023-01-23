@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 
@@ -6,8 +6,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tomorrow-night-blue.css";
 
 const Card = ({ code }) => {
-  useEffect(() => {
-    console.log(1);
+  useLayoutEffect(() => {
     hljs.highlightAll();
   }, []);
 
@@ -16,7 +15,7 @@ const Card = ({ code }) => {
       <CardTitle>gsap.to</CardTitle>
       <CardPre>
         <CardCode
-          class="language-javascript"
+          className="language-javascript"
           dangerouslySetInnerHTML={{
             __html: code,
           }}

@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 import gsap from "gsap";
 
 const Letters = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.fromTo(
       "[data-letter]",
       {
