@@ -89,6 +89,7 @@ const CardImages = styled.div`
   background-size: cover;
   margin-bottom: ${rem(30)};
   border-radius: ${rem(10)};
+  overflow: hidden;
 `;
 
 const Fred = styled.img`
