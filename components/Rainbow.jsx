@@ -39,7 +39,7 @@ const Rainbow = () => {
       <Container>
         <RainbowInner>
           <RainbowTextBox className="wrapper">
-            <RainbowH1>Bob's Ice Cream</RainbowH1>
+            <RainbowH1>Bob&rsquo;s Ice Cream</RainbowH1>
             <RainbowH2>A rainbow of flavors</RainbowH2>
           </RainbowTextBox>
         </RainbowInner>
