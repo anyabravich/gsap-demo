@@ -25,6 +25,7 @@ const Logo = () => {
 };
 
 const LogoWrap = styled.div`
+  flex-shrink: 0;
   width: ${rem(64)};
   height: ${rem(64)};
   overflow: hidden;
