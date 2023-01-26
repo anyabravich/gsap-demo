@@ -61,7 +61,7 @@ gsap.fromTo('[data="fromTo"]', {
     setTweenTo(
       gsap.to('[data="to"]', {
         duration: 3,
-        x: "300",
+        x: 300,
         ease: "linear",
         paused: true,
       })
