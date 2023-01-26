@@ -20,6 +20,10 @@ const Menu = () => {
       href: "/timelines",
       name: "Timelines",
     },
+    {
+      href: "/beyond",
+      name: "Beyond",
+    },
   ];
   return (
     <MenuWrap>
