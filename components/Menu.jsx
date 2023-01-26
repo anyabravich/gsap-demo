@@ -7,7 +7,7 @@ import { Inter } from "@next/font/google";
 import useWidth from "@/hooks/useWidth";
 const inter = Inter({ subsets: ["latin"] });
 
-const Menu = ({ show, setShow }) => {
+const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
   const menuWrap = useRef(null);
   const resize = useWidth();
 
@@ -40,11 +40,11 @@ const Menu = ({ show, setShow }) => {
   ];
 
   return (
-    <MenuWrap show={show} ref={menuWrap}>
+    <MenuWrap isOpenMenu={isOpenMenu} ref={menuWrap}>
       {links.map(({ href, name }) => (
         <MenuItem key={name}>
           <MenuLinkBox className={inter.className} href={href} legacyBehavior>
-            <MenuLink>{name}</MenuLink>
+            <MenuLink onClick={() => setIsOpenMenu(false)}>{name}</MenuLink>
           </MenuLinkBox>
         </MenuItem>
       ))}
@@ -58,7 +58,7 @@ const MenuWrap = styled.ul`
   gap: ${rem(50)};
   @media (max-width: 658px) {
     transform: ${(props) =>
-      props.show ? "translateX(0%)" : "translateX(100%)"};
+      props.isOpenMenu ? "translateX(0%)" : "translateX(100%)"};
     /* transition: transform 300ms linear; */
     flex-direction: column;
     background: #ffffff;

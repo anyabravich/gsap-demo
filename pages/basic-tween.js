@@ -1,10 +1,13 @@
 import Card from "@/components/Card";
 import Cards from "@/components/Cards";
+import Nav from "@/components/Nav";
+import { userMenu } from "@/context/menu";
 import gsap from "gsap";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Basic() {
+  const { isOpenMenu, setIsOpenMenu } = userMenu();
   const items = [
     {
       title: "gsap.to",
@@ -178,6 +181,7 @@ gsap.fromTo('[data="fromTo"]', {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
       <Cards>
         {items.map((props, index) => (
           <Card

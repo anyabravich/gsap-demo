@@ -1,24 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { rem } from "polished";
 import Container from "./Container";
 import Menu from "./Menu";
 import Link from "next/link";
+import { userMenu } from "@/context/menu";
 
-const Nav = () => {
+const Nav = ({ isOpenMenu, setIsOpenMenu }) => {
   const [show, setShow] = useState(false);
+  console.log(isOpenMenu);
   return (
     <NavWrap>
       <Container>
         <NavInner>
           <Logo />
-          <Menu show={show} setShow={setShow} />
+          <Menu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
           <Site href={"https://greensock.com/gsap/"} target="_blank" />
           <MenuButton
             href={"https://greensock.com/gsap/"}
             target="_blank"
-            onClick={() => setShow(!show)}
+            onClick={() => setIsOpenMenu(!isOpenMenu)}
           />
         </NavInner>
       </Container>

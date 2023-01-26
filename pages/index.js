@@ -1,7 +1,10 @@
 import Letters from "@/components/Letters";
 import Head from "next/head";
+import { userMenu } from "@/context/menu";
+import Nav from "@/components/Nav";
 
 export default function Home() {
+  const { isOpenMenu, setIsOpenMenu } = userMenu();
   return (
     <>
       <Head>
@@ -10,6 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
+        <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         <Letters />
       </>
     </>
