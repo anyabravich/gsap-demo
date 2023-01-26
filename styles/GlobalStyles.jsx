@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     overflow-x: hidden;
   }
+  .letter,
+  .word {
+    display: inline-block;
+  }
 `;
 
 export default GlobalStyle;

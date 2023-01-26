@@ -1,29 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import Container from "./Container";
 import { rem } from "polished";
-import { gsap } from "gsap-trial";
-import { SplitText } from "gsap-trial/dist/SplitText";
+import { gsap } from "gsap";
+import TextSplitter from "@/utils/TextSplit.js";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const Rainbow = () => {
-  useEffect(() => {
-    gsap.registerPlugin(SplitText);
-
+  const title = useRef(null);
+  const subTitle = useRef(null);
+  useLayoutEffect(() => {
     gsap.registerEffect({
       name: "rainbow",
       extendTimeline: true,
       defaults: {
-        y: -100,
-        colors: ["aqua", "pink", "yellow"],
+        y: gsap.utils.wrap([-100, 100]),
+        rotation: gsap.utils.wrap([-100, 100]),
+        stagger: 0.05,
+        colors: ["#C3ACD0", "#519259", "#F0BB62", "#F4EEA9"],
       },
       effect: (targets, config) => {
-        let split = new SplitText(targets, { type: "chars" });
-        let tl = gsap.timeline();
-        tl.from(split.chars, { opacity: 0, y: config.y, stagger: 0.05 }).to(
-          split.chars,
-          { color: gsap.utils.wrap(config.colors), stagger: 0.05 },
-          0
-        );
+        const chars = TextSplitter.split(targets[0], true).letters;
+        const tl = gsap.timeline();
+
+        tl.set(chars, { color: gsap.utils.wrap(config.colors) }).from(chars, {
+          y: config.y,
+          rotation: config.rotation,
+          opacity: 0,
+          stagger: config.stagger,
+        });
+
         return tl;
       },
     });
@@ -32,15 +40,21 @@ const Rainbow = () => {
 
     let animation = gsap.timeline();
 
-    animation.rainbow("h1").rainbow("h2", { y: 50 }, 0);
+    animation
+      .rainbow(title.current, {
+        y: -100,
+        rotation: -100,
+        stagger: 0.1,
+      })
+      .rainbow(subTitle.current, { y: 100, rotation: 100 });
   }, []);
   return (
     <RainbowWrap>
       <Container>
         <RainbowInner>
           <RainbowTextBox className="wrapper">
-            <RainbowH1>Bob&rsquo;s Ice Cream</RainbowH1>
-            <RainbowH2>A rainbow of flavors</RainbowH2>
+            <RainbowH1 ref={title}>Bob&rsquo;s Ice Cream</RainbowH1>
+            <RainbowH2 ref={subTitle}>A rainbow of flavors</RainbowH2>
           </RainbowTextBox>
         </RainbowInner>
       </Container>
