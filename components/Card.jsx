@@ -1,18 +1,46 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 
 import hljs from "highlight.js";
 import "highlight.js/styles/tomorrow-night-blue.css";
+import Play from "./Buttons";
+import Buttons from "./Buttons";
 
-const Card = ({ code }) => {
+const Card = ({
+  title,
+  code,
+  selector,
+  animationPause,
+  animationStart,
+  animationReverse,
+  animationRestart,
+}) => {
+  const fred = useRef(null);
   useLayoutEffect(() => {
     hljs.highlightAll();
   }, []);
 
   return (
     <CardWrap>
-      <CardTitle>gsap.to</CardTitle>
+      <CardTitle>{title}</CardTitle>
+      <CardButtons>
+        <Buttons
+          selector={selector}
+          fred={fred}
+          animationPause={animationPause}
+          animationStart={animationStart}
+          animationReverse={animationReverse}
+          animationRestart={animationRestart}
+        />
+      </CardButtons>
+      <CardImages>
+        <Fred
+          src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/fred_ndktpv.svg"
+          data={selector}
+          ref={fred}
+        />
+      </CardImages>
       <CardPre>
         <CardCode
           className="language-javascript"
@@ -52,5 +80,27 @@ const CardCode = styled.code`
     height: 0;
   }
 `;
+
+const CardImages = styled.div`
+  position: relative;
+  height: ${rem(230)};
+  background: url("https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/space-background_xcjrsf.png")
+    no-repeat center bottom;
+  background-size: cover;
+  margin-bottom: ${rem(30)};
+  border-radius: ${rem(10)};
+`;
+
+const Fred = styled.img`
+  width: ${rem(100)};
+  position: absolute;
+  bottom: ${rem(20)};
+  left: ${rem(20)};
+  @media (max-width: 576px) {
+    width: ${rem(50)};
+  }
+`;
+
+const CardButtons = styled.div``;
 
 export default Card;

@@ -20,7 +20,7 @@ const CardsWrap = styled.div`
 const CardsInner = styled.div`
   display: grid;
   gap: ${rem(40)};
-  grid-template-columns: repeat(auto-fit, minmax(${rem(400)}, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(${rem(280)}, 1fr));
 `;
 
 export default Cards;

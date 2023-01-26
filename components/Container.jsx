@@ -7,7 +7,7 @@ const Container = ({ children }) => {
 };
 
 const ContainerWrap = styled.div`
-  max-width: ${rem(1280)};
+  max-width: ${rem(1440)};
   margin: 0 auto;
   box-sizing: content-box;
   padding: 0 ${rem(20)};
