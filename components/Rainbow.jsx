@@ -5,9 +5,6 @@ import { rem } from "polished";
 import { gsap } from "gsap";
 import TextSplitter from "@/utils/TextSplit.js";
 
-const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
 const Rainbow = () => {
   const title = useRef(null);
   const subTitle = useRef(null);
@@ -64,6 +61,9 @@ const Rainbow = () => {
 
 const RainbowWrap = styled.div`
   margin-top: ${rem(80)};
+  @media (max-width: 576px) {
+    margin-top: ${rem(40)};
+  }
 `;
 
 const RainbowInner = styled.div`

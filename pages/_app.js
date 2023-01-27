@@ -1,6 +1,5 @@
 import Theme from "@/styles/Theme";
 import GlobalStyles from "@/styles/GlobalStyles";
-import Nav from "@/components/Nav";
 import { Inter } from "@next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 import GitBookButton from "@/components/GitBookButton";

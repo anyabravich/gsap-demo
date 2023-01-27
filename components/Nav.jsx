@@ -8,8 +8,6 @@ import Link from "next/link";
 import { userMenu } from "@/context/menu";
 
 const Nav = ({ isOpenMenu, setIsOpenMenu }) => {
-  const [show, setShow] = useState(false);
-  console.log(isOpenMenu);
   return (
     <NavWrap>
       <Container>

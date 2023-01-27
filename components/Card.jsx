@@ -4,7 +4,6 @@ import { rem } from "polished";
 
 import hljs from "highlight.js";
 import "highlight.js/styles/tomorrow-night-blue.css";
-import Play from "./Buttons";
 import Buttons from "./Buttons";
 
 const Card = ({
@@ -35,20 +34,38 @@ const Card = ({
         />
       </CardButtons>
       <CardImages>
-        <Fred
-          src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/fred_ndktpv.svg"
-          data={selector}
-          ref={fred}
-        />
+        {selector === "stagger" ? (
+          <>
+            <Fred
+              src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877096/fred-red_oc0wla.svg"
+              data={selector}
+            />
+            <Fred
+              src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877096/fred-orange_ol0jzb.svg"
+              data={selector}
+            />
+            <Fred
+              src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/fred_ndktpv.svg"
+              data={selector}
+            />
+          </>
+        ) : (
+          <Fred
+            src="https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/fred_ndktpv.svg"
+            data={selector}
+          />
+        )}
       </CardImages>
-      <CardPre>
-        <CardCode
-          className="language-javascript"
-          dangerouslySetInnerHTML={{
-            __html: code,
-          }}
-        />
-      </CardPre>
+      <CardCodeWrap>
+        <CardPre>
+          <CardCode
+            className="language-javascript"
+            dangerouslySetInnerHTML={{
+              __html: code,
+            }}
+          />
+        </CardPre>
+      </CardCodeWrap>
     </CardWrap>
   );
 };
@@ -82,7 +99,8 @@ const CardCode = styled.code`
 `;
 
 const CardImages = styled.div`
-  position: relative;
+  display: flex;
+  align-items: flex-end;
   height: ${rem(230)};
   background: url("https://res.cloudinary.com/duk6gqw1x/image/upload/v1673877097/space-background_xcjrsf.png")
     no-repeat center bottom;
@@ -94,7 +112,7 @@ const CardImages = styled.div`
 
 const Fred = styled.img`
   width: ${rem(100)};
-  position: absolute;
+  position: relative;
   bottom: ${rem(20)};
   left: ${rem(20)};
   @media (max-width: 576px) {
@@ -103,5 +121,11 @@ const Fred = styled.img`
 `;
 
 const CardButtons = styled.div``;
+
+const CardCodeWrap = styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+`;
 
 export default Card;

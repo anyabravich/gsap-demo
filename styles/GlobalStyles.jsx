@@ -18,6 +18,31 @@ const GlobalStyle = createGlobalStyle`
   .word {
     display: inline-block;
   }
+  .hljs-copy-button {
+    border: none;
+    position: absolute;
+    right: ${rem(10)};
+    top: ${rem(10)};
+    width: ${rem(25)};
+    height: ${rem(25)};
+    background: url("copy.svg");
+    cursor: pointer;
+    font-size: 0;
+  }
+
+  .hljs-copy-alert {
+    position: fixed;
+    top: ${rem(20)};
+    right: ${rem(20)};
+    padding: 10px 30px;
+    min-width: ${rem(100)};
+    background: #FFFFFF;
+    border-left: 4px solid #37B24D;
+    box-shadow: 0px 4px 10px rgba(206, 203, 203, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    z-index: 1;
+  }
 `;
 
 export default GlobalStyle;

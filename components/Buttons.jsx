@@ -23,6 +23,11 @@ const BtnBox = styled.div`
   display: flex;
   gap: 20px;
   margin-bottom: ${rem(30)};
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 `;
 
 const Btn = styled.button`

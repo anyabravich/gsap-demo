@@ -3,10 +3,18 @@ import Cards from "@/components/Cards";
 import Nav from "@/components/Nav";
 import { userMenu } from "@/context/menu";
 import gsap from "gsap";
+import hljs from "highlight.js";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Basic() {
+  useEffect(() => {
+    setTimeout(() => {
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.highlightAll();
+    }, 100);
+  }, []);
+
   const { isOpenMenu, setIsOpenMenu } = userMenu();
   const items = [
     {
@@ -54,11 +62,57 @@ gsap.fromTo('[data="fromTo"]', {
 )
       `,
     },
+    {
+      title: "repeat & yoyo",
+      selector: "repeatYoYo",
+      code: `
+gsap.to('[data="repeatYoYo"]', {
+  duration: 3,
+  x: 300,
+  ease: "linear",
+  yoyo: true,
+  repeat: -1,
+  paused: true,
+});
+      `,
+    },
+    {
+      title: "ease elastic",
+      selector: "elastic",
+      code: `
+gsap.to('[data="elastic"]', {
+  duration: 3,
+  x: 300,
+  ease: "elastic",
+  paused: true,
+});
+      `,
+    },
+    {
+      title: "stagger",
+      selector: "stagger",
+      code: `
+gsap.to('[data="stagger"]', {
+  y: -100,
+  stagger: {
+    amount: 1
+  },
+  repeat: -1,
+  yoyo: true,
+  paused: true,
+});
+      `,
+    },
   ];
+
+  const copy = () => {};
 
   const [tweenTo, setTweenTo] = useState(null);
   const [tweenFrom, setTweenFrom] = useState(null);
   const [tweenFromTo, setTweenFromTo] = useState(null);
+  const [tweenRepeatYoYo, setTweenRepeatYoYo] = useState(null);
+  const [tweenElastic, setTweenElastic] = useState(null);
+  const [tweenStagger, setTweenStagger] = useState(null);
 
   useEffect(() => {
     setTweenTo(
@@ -96,6 +150,35 @@ gsap.fromTo('[data="fromTo"]', {
         }
       )
     );
+    setTweenRepeatYoYo(
+      gsap.to('[data="repeatYoYo"]', {
+        duration: 3,
+        x: 300,
+        ease: "linear",
+        yoyo: true,
+        repeat: -1,
+        paused: true,
+      })
+    );
+    setTweenElastic(
+      gsap.to('[data="elastic"]', {
+        duration: 3,
+        x: 220,
+        ease: "elastic",
+        paused: true,
+      })
+    );
+    setTweenStagger(
+      gsap.to('[data="stagger"]', {
+        y: -100,
+        stagger: {
+          amount: 1,
+        },
+        repeat: -1,
+        yoyo: true,
+        paused: true,
+      })
+    );
   }, []);
 
   const animationStart = (e) => {
@@ -112,6 +195,18 @@ gsap.fromTo('[data="fromTo"]', {
       }
       case "fromTo": {
         tweenFromTo.play();
+        break;
+      }
+      case "repeatYoYo": {
+        tweenRepeatYoYo.play();
+        break;
+      }
+      case "elastic": {
+        tweenElastic.play();
+        break;
+      }
+      case "stagger": {
+        tweenStagger.play();
         break;
       }
     }
@@ -133,6 +228,14 @@ gsap.fromTo('[data="fromTo"]', {
         tweenFromTo.pause();
         break;
       }
+      case "repeatYoYo": {
+        tweenRepeatYoYo.pause();
+        break;
+      }
+      case "elastic": {
+        tweenElastic.pause();
+        break;
+      }
     }
   };
 
@@ -150,6 +253,14 @@ gsap.fromTo('[data="fromTo"]', {
       }
       case "fromTo": {
         tweenFromTo.reverse();
+        break;
+      }
+      case "repeatYoYo": {
+        tweenRepeatYoYo.reverse();
+        break;
+      }
+      case "elastic": {
+        tweenElastic.reverse();
         break;
       }
     }
@@ -171,6 +282,14 @@ gsap.fromTo('[data="fromTo"]', {
         tweenFromTo.restart();
         break;
       }
+      case "repeatYoYo": {
+        tweenRepeatYoYo.restart();
+        break;
+      }
+      case "elastic": {
+        tweenElastic.restart();
+        break;
+      }
     }
   };
 
@@ -190,6 +309,7 @@ gsap.fromTo('[data="fromTo"]', {
             animationPause={animationPause}
             animationReverse={animationReverse}
             animationRestart={animationRestart}
+            copy={copy}
             key={index}
           />
         ))}
