@@ -25,6 +25,14 @@ const BtnBox = styled.div`
   margin-bottom: ${rem(30)};
 `;
 
-const Btn = styled.button``;
+const Btn = styled.button`
+  border: none;
+  background: #37b24d;
+  color: #ffffff;
+  border-radius: ${rem(10)};
+  padding: 5px 15px;
+  font-weight: 600;
+  cursor: pointer;
+`;
 
 export default Buttons;
