@@ -21,6 +21,7 @@ const Nav = ({ isOpenMenu, setIsOpenMenu }) => {
             href={"https://greensock.com/gsap/"}
             target="_blank"
             onClick={() => setIsOpenMenu(!isOpenMenu)}
+            isOpenMenu={isOpenMenu}
           />
         </NavInner>
       </Container>
@@ -55,6 +56,11 @@ const Site = styled(Link)`
 `;
 
 const MenuButton = styled.button`
+  border: none;
+  outline: none;
+  background: ${(props) =>
+    props.isOpenMenu ? 'url("menu-close.svg")' : 'url("menu.svg")'};
+  background-size: cover;
   width: ${rem(25)};
   height: ${rem(25)};
   flex-shrink: 0;
