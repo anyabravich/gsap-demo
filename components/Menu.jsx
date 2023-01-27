@@ -1,8 +1,7 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 import Link from "next/link";
-
 import { Inter } from "@next/font/google";
 import useWidth from "@/hooks/useWidth";
 const inter = Inter({ subsets: ["latin"] });

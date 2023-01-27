@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import Cards from "@/components/Cards";
 import Nav from "@/components/Nav";
 import { userMenu } from "@/context/menu";
+import { cards } from "@/data/cards";
 import gsap from "gsap";
 import hljs from "highlight.js";
 import Head from "next/head";
@@ -16,97 +17,6 @@ export default function Basic() {
   }, []);
 
   const { isOpenMenu, setIsOpenMenu } = userMenu();
-  const items = [
-    {
-      title: "gsap.to",
-      selector: "to",
-      code: `
-gsap.to("[data='to']", {
-  duration: 3,
-  x: 300,
-  ease: "linear",
-  paused: true,
-});
-      `,
-    },
-    {
-      title: "gsap.from",
-      selector: "from",
-      code: `
-gsap.from("[data='from']", {
-  duration: 3,
-  x: 300,
-  ease: "linear",
-  paused: true,
-});
-      `,
-    },
-    {
-      title: "gsap.fromTo",
-      selector: "fromTo",
-      code: `
-gsap.fromTo('[data="fromTo"]', {
-    x: 300,
-    duration: 3,
-    ease: "linear",
-    paused: true,
-    opacity: 0,
-  },
-  {
-    x: 0,
-    duration: 3,
-    ease: "linear",
-    paused: true,
-    opacity: 1,
-  }
-)
-      `,
-    },
-    {
-      title: "repeat & yoyo",
-      selector: "repeatYoYo",
-      code: `
-gsap.to('[data="repeatYoYo"]', {
-  duration: 3,
-  x: 300,
-  ease: "linear",
-  yoyo: true,
-  repeat: -1,
-  paused: true,
-});
-      `,
-    },
-    {
-      title: "ease elastic",
-      selector: "elastic",
-      code: `
-gsap.to('[data="elastic"]', {
-  duration: 3,
-  x: 300,
-  ease: "elastic",
-  paused: true,
-});
-      `,
-    },
-    {
-      title: "stagger",
-      selector: "stagger",
-      code: `
-gsap.to('[data="stagger"]', {
-  y: -100,
-  stagger: {
-    amount: 1
-  },
-  repeat: -1,
-  yoyo: true,
-  paused: true,
-});
-      `,
-    },
-  ];
-
-  const copy = () => {};
-
   const [tweenTo, setTweenTo] = useState(null);
   const [tweenFrom, setTweenFrom] = useState(null);
   const [tweenFromTo, setTweenFromTo] = useState(null);
@@ -181,10 +91,20 @@ gsap.to('[data="stagger"]', {
     );
   }, []);
 
-  const animationStart = (e) => {
+  const getElement = (e) => {
+    const currentSiblings = e.target.parentNode.children;
     const el = e.target.parentNode.parentNode.nextElementSibling.children[0];
     const elAttr = el.getAttribute("data");
-    switch (elAttr) {
+
+    [...currentSiblings].forEach((sibling) => {
+      sibling.style.background = "#37b24d";
+    });
+    e.target.style.background = "#257834";
+    return elAttr;
+  };
+
+  const animationStart = (e) => {
+    switch (getElement(e)) {
       case "to": {
         tweenTo.play();
         break;
@@ -213,9 +133,7 @@ gsap.to('[data="stagger"]', {
   };
 
   const animationPause = (e) => {
-    const el = e.target.parentNode.parentNode.nextElementSibling.children[0];
-    const elAttr = el.getAttribute("data");
-    switch (elAttr) {
+    switch (getElement(e)) {
       case "to": {
         tweenTo.pause();
         break;
@@ -240,9 +158,7 @@ gsap.to('[data="stagger"]', {
   };
 
   const animationReverse = (e) => {
-    const el = e.target.parentNode.parentNode.nextElementSibling.children[0];
-    const elAttr = el.getAttribute("data");
-    switch (elAttr) {
+    switch (getElement(e)) {
       case "to": {
         tweenTo.reverse();
         break;
@@ -267,9 +183,7 @@ gsap.to('[data="stagger"]', {
   };
 
   const animationRestart = (e) => {
-    const el = e.target.parentNode.parentNode.nextElementSibling.children[0];
-    const elAttr = el.getAttribute("data");
-    switch (elAttr) {
+    switch (getElement(e)) {
       case "to": {
         tweenTo.restart();
         break;
@@ -302,14 +216,13 @@ gsap.to('[data="stagger"]', {
       </Head>
       <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
       <Cards>
-        {items.map((props, index) => (
+        {cards.map((props, index) => (
           <Card
             {...props}
             animationStart={animationStart}
             animationPause={animationPause}
             animationReverse={animationReverse}
             animationRestart={animationRestart}
-            copy={copy}
             key={index}
           />
         ))}

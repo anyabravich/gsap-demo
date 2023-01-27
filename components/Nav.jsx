@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import { rem } from "polished";
 import Container from "./Container";
 import Menu from "./Menu";
 import Link from "next/link";
-import { userMenu } from "@/context/menu";
 
 const Nav = ({ isOpenMenu, setIsOpenMenu }) => {
   return (
