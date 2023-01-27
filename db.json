@@ -1,0 +1,9 @@
+{
+  "cards": [
+    {
+      "title": "gsap.to",
+      "selector": "to",
+      "code": "gsap.to('[data-to]', {x: 200})"
+    }
+  ]
+}

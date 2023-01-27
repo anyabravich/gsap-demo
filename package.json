@@ -6,16 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve": "concurrently 'npm run dev' 'npm run mock'",
+    "mock": "json-server --w db.json -p 4200 -d 1750"
   },
   "dependencies": {
     "@next/font": "13.1.4",
+    "concurrently": "^7.6.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.4",
     "gsap": "^3.11.4",
     "gsap-trial": "^3.11.4",
     "highlight.js": "^11.7.0",
     "highlightjs-copy": "^1.0.3",
+    "json-server": "^0.17.1",
+    "mock": "^0.1.1",
     "next": "13.1.4",
     "polished": "^4.2.2",
     "react": "18.2.0",
