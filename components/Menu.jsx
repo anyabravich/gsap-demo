@@ -59,7 +59,7 @@ const MenuWrap = styled.ul`
   @media (max-width: 658px) {
     transform: ${(props) =>
       props.isOpenMenu ? "translateX(0%)" : "translateX(100%)"};
-    /* transition: transform 300ms linear; */
+    transition: transform 300ms linear;
     flex-direction: column;
     background: #ffffff;
     will-change: transform;
