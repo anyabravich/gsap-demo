@@ -4,10 +4,10 @@ export const cards = [
     selector: "to",
     code: `
 gsap.to("[data='to']", {
-duration: 3,
-x: 300,
-ease: "linear",
-paused: true,
+  duration: 3,
+  x: 300,
+  ease: "linear",
+  paused: true,
 });
     `,
   },
@@ -16,10 +16,10 @@ paused: true,
     selector: "from",
     code: `
 gsap.from("[data='from']", {
-duration: 3,
-x: 300,
-ease: "linear",
-paused: true,
+  duration: 3,
+  x: 300,
+  ease: "linear",
+  paused: true,
 });
     `,
   },
@@ -49,12 +49,12 @@ gsap.fromTo('[data="fromTo"]', {
     selector: "repeatYoYo",
     code: `
 gsap.to('[data="repeatYoYo"]', {
-duration: 3,
-x: 300,
-ease: "linear",
-yoyo: true,
-repeat: -1,
-paused: true,
+  duration: 3,
+  x: 300,
+  ease: "linear",
+  yoyo: true,
+  repeat: -1,
+  paused: true,
 });
     `,
   },
@@ -63,10 +63,10 @@ paused: true,
     selector: "elastic",
     code: `
 gsap.to('[data="elastic"]', {
-duration: 3,
-x: 300,
-ease: "elastic",
-paused: true,
+  duration: 3,
+  x: 300,
+  ease: "elastic",
+  paused: true,
 });
     `,
   },
@@ -75,13 +75,13 @@ paused: true,
     selector: "stagger",
     code: `
 gsap.to('[data="stagger"]', {
-y: -100,
-stagger: {
-  amount: 1
-},
-repeat: -1,
-yoyo: true,
-paused: true,
+  y: -100,
+  stagger: {
+    amount: 1
+  },
+  repeat: -1,
+  yoyo: true,
+  paused: true,
 });
     `,
   },
