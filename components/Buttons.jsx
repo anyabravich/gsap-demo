@@ -2,6 +2,7 @@ import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
+import Button from "./Button";
 
 const Buttons = ({
   animationStart,
@@ -11,10 +12,10 @@ const Buttons = ({
 }) => {
   return (
     <BtnBox>
-      <Btn onClick={animationStart}>Play</Btn>
-      <Btn onClick={animationPause}>Pause</Btn>
-      <Btn onClick={animationReverse}>Reverse</Btn>
-      <Btn onClick={animationRestart}>Restart</Btn>
+      <Button ev={animationStart}>Play</Button>
+      <Button ev={animationPause}>Pause</Button>
+      <Button ev={animationReverse}>Reverse</Button>
+      <Button ev={animationRestart}>Restart</Button>
     </BtnBox>
   );
 };
