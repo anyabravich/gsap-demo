@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 import Link from "next/link";
@@ -11,13 +11,14 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
   const resize = useWidth();
 
   useEffect(() => {
-    if (resize <= 658) {
+    if (resize <= 813) {
       menuWrap.current.style.display = "none";
+      setIsOpenMenu(false);
       setTimeout(() => {
         menuWrap.current.style.display = "flex";
       }, 1);
     }
-  }, []);
+  }, [resize]);
 
   const links = [
     {
@@ -35,6 +36,10 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
     {
       href: "/beyond",
       name: "Beyond",
+    },
+    {
+      href: "/scroll",
+      name: "ScrollTrigger",
     },
   ];
 
@@ -55,7 +60,7 @@ const MenuWrap = styled.ul`
   list-style: none;
   display: flex;
   gap: ${rem(50)};
-  @media (max-width: 658px) {
+  @media (max-width: 812px) {
     transform: ${(props) =>
       props.isOpenMenu ? "translateX(0%)" : "translateX(100%)"};
     transition: transform 300ms linear;

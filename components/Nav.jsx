@@ -37,7 +37,7 @@ const NavInner = styled.div`
   align-items: center;
   height: ${rem(90)};
   gap: ${rem(50)};
-  @media (max-width: 658px) {
+  @media (max-width: 812px) {
     gap: ${rem(30)};
   }
 `;
@@ -64,7 +64,7 @@ const MenuButton = styled.button`
   display: none;
   position: relative;
   z-index: 3;
-  @media (max-width: 658px) {
+  @media (max-width: 812px) {
     display: block;
   }
 `;
