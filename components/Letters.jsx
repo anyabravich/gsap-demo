@@ -5,21 +5,15 @@ import gsap from "gsap";
 
 const Letters = () => {
   useLayoutEffect(() => {
-    gsap.fromTo(
-      "[data-letter]",
-      {
-        opacity: 0,
-        scale: 3,
-        stagger: 0.5,
-        delay: 1,
+    gsap.to("[data-letter]", {
+      y: 50,
+      rotate: -360,
+      ease: "none",
+      opacity: 1,
+      stagger: {
+        each: 0.5,
       },
-      {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.5,
-        delay: 1,
-      }
-    );
+    });
   }, []);
   return (
     <LettersContainer>
@@ -42,7 +36,12 @@ const Letters = () => {
 };
 
 const LettersContainer = styled.div`
-  height: calc(100% - ${rem(90)});
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +55,7 @@ const LettersWrap = styled.div`
   font-size: ${rem(200)};
   line-height: ${rem(242)};
   color: ${(props) => props.theme.colors.black};
-  margin-top: ${rem(45)};
+  /* margin-top: ${rem(45)}; */
   // TODO: добавить в переменную
   @media (max-width: 768px) {
     font-size: 140px;
@@ -71,6 +70,7 @@ const LettersWrap = styled.div`
 
 const LettersLetter = styled.span`
   will-change: transform;
+  opacity: 0;
 `;
 
 export default Letters;

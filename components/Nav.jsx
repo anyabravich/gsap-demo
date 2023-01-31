@@ -27,6 +27,8 @@ const Nav = ({ isOpenMenu, setIsOpenMenu }) => {
 };
 
 const NavWrap = styled.nav`
+  position: relative;
+  z-index: 2;
   height: ${rem(90)};
   border-bottom: ${rem(1)} solid ${(props) => props.theme.colors.white};
   box-shadow: 0 ${rem(4)} ${rem(20)} ${rem(7)} rgba(159, 159, 159, 0.06);

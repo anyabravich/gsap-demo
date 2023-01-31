@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
   html, 
   body,
   main {
-    height: 100%;
-    overflow-x: hidden;
+    /* height: 100%; */
+    /* overflow-x: hidden; */
   }
   .letter,
   .word {

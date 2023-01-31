@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Rainbow from "@/components/Rainbow";
+import ScrollBlock from "@/components/ScrollBlock";
 import { userMenu } from "@/context/menu";
 import Head from "next/head";
 
@@ -14,6 +15,7 @@ export default function Beyond() {
       </Head>
       <>
         <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
+        <ScrollBlock />
       </>
     </>
   );
