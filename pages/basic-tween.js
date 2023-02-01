@@ -10,10 +10,8 @@ import { useEffect, useState } from "react";
 
 export default function Basic() {
   useEffect(() => {
-    setTimeout(() => {
-      hljs.addPlugin(new CopyButtonPlugin());
-      hljs.highlightAll();
-    }, 100);
+    hljs.addPlugin(new CopyButtonPlugin());
+    hljs.highlightAll();
   }, []);
 
   const { isOpenMenu, setIsOpenMenu } = userMenu();
