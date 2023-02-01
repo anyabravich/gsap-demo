@@ -22,10 +22,6 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
 
   const links = [
     {
-      href: "/",
-      name: "Home",
-    },
-    {
       href: "/basic-tween",
       name: "Basic Tween",
     },
@@ -40,6 +36,10 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
     {
       href: "/scroll",
       name: "ScrollTrigger",
+    },
+    {
+      href: "/other",
+      name: "Other",
     },
   ];
 
