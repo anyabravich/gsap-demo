@@ -45,6 +45,9 @@ const LettersContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 576px) {
+    height: calc(100vh - ${rem(90)});
+  }
 `;
 
 const LettersWrap = styled.div`
