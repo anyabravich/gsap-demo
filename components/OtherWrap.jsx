@@ -17,8 +17,6 @@ const OtherWrapElement = styled.div`
   margin-top: ${rem(80)};
 `;
 
-const OtherWrapInner = styled.div`
-  border: 1px solid red;
-`;
+const OtherWrapInner = styled.div``;
 
 export default OtherWrap;
