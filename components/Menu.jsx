@@ -1,14 +1,16 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 import Link from "next/link";
 import { Inter } from "@next/font/google";
 import useWidth from "@/hooks/useWidth";
+import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
 const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
   const menuWrap = useRef(null);
   const resize = useWidth();
+  const router = useRouter();
 
   useEffect(() => {
     if (resize <= 813) {
@@ -48,7 +50,12 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
       {links.map(({ href, name }) => (
         <MenuItem key={name}>
           <MenuLinkBox className={inter.className} href={href} legacyBehavior>
-            <MenuLink onClick={() => setIsOpenMenu(false)}>{name}</MenuLink>
+            <MenuLink
+              onClick={() => setIsOpenMenu(false)}
+              active={router.pathname == href ?? true}
+            >
+              {name}
+            </MenuLink>
           </MenuLinkBox>
         </MenuItem>
       ))}
@@ -65,7 +72,7 @@ const MenuWrap = styled.ul`
       props.isOpenMenu ? "translateX(0%)" : "translateX(100%)"};
     transition: transform 300ms linear;
     flex-direction: column;
-    background: #ffffff;
+    background: ${(props) => props.theme.colors.white};
     will-change: transform;
     width: 100%;
     position: fixed;
@@ -86,7 +93,8 @@ const MenuLink = styled.a`
   white-space: nowrap;
   font-size: ${rem(15)};
   line-height: ${rem(18)};
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) =>
+    props.active ? props.theme.colors.primary : props.theme.colors.black};
   text-decoration: none;
   font-weight: 900;
   cursor: pointer;

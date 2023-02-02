@@ -5,6 +5,7 @@ const theme = {
   colors: {
     black: "#000000",
     white: "#ffffff",
+    primary: "#37b24d",
   },
   breakpoints: {},
 };
