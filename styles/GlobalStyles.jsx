@@ -42,6 +42,14 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     z-index: 1;
   }
+
+  .loser [data-flip-front]{
+	  background:black;
+  }
+
+  .loser [data-flip-img] {
+	  filter:saturate(0);
+  }
 `;
 
 export default GlobalStyle;

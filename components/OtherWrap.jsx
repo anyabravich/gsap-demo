@@ -18,13 +18,7 @@ const OtherWrapElement = styled.div`
 `;
 
 const OtherWrapInner = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: ${rem(200)};
-  gap: ${rem(30)};
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
+  border: 1px solid red;
 `;
 
 export default OtherWrap;

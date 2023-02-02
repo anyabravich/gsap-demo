@@ -1,4 +1,4 @@
-import LayeredPinning from "@/components/LayeredPinning";
+import FlipCards from "@/components/FlipCards";
 import Nav from "@/components/Nav";
 import OtherWrap from "@/components/OtherWrap";
 import Seal from "@/components/Seal";
@@ -17,7 +17,8 @@ export default function Other() {
       <>
         <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         <OtherWrap>
-          <Seal />
+          {/* <Seal /> */}
+          <FlipCards />
         </OtherWrap>
       </>
     </>
