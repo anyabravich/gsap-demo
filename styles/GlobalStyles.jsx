@@ -7,12 +7,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  #__next,
-  html, 
-  body,
-  main {
-    /* height: 100%; */
-    /* overflow-x: hidden; */
+
+  html, body, #__next, main {
+    height: 100%;
   }
   .letter,
   .word {
@@ -50,6 +47,40 @@ const GlobalStyle = createGlobalStyle`
   .loser [data-flip-img] {
 	  filter:saturate(0);
   }
+
+  .flake {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}
+
+.flake1 {
+  background-image: url("https://assets.codepen.io/32887/flake1.svg");
+}
+
+.flake2 {
+  background-image: url("https://assets.codepen.io/32887/flake2.svg");
+}
+
+.flake3 {
+  background-image: url("https://assets.codepen.io/32887/flake3.svg");
+}
+
+.flake4 {
+  background-image: url("https://assets.codepen.io/32887/flake4.svg");
+}
+
+.wrapperSnow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -100px;
+  height: calc(100% + 100px);
+  width: 100%;
+  background: #1c7ed6;
+  overflow: hidden;
+}
 `;
 
 export default GlobalStyle;

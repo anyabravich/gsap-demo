@@ -105,7 +105,6 @@ const FlipCardsFaceBack = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  /* backface-visibility: hidden; */
   transform: rotateY(180deg);
   color: white;
   background: repeating-linear-gradient(

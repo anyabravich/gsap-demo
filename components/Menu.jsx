@@ -7,7 +7,7 @@ import useWidth from "@/hooks/useWidth";
 import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
-const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
+const Menu = ({ isOpenMenu, setIsOpenMenu, color }) => {
   const menuWrap = useRef(null);
   const resize = useWidth();
   const router = useRouter();
@@ -46,13 +46,14 @@ const Menu = ({ isOpenMenu, setIsOpenMenu }) => {
   ];
 
   return (
-    <MenuWrap isOpenMenu={isOpenMenu} ref={menuWrap}>
+    <MenuWrap isOpenMenu={isOpenMenu} ref={menuWrap} color={color}>
       {links.map(({ href, name }) => (
         <MenuItem key={name}>
           <MenuLinkBox className={inter.className} href={href} legacyBehavior>
             <MenuLink
               onClick={() => setIsOpenMenu(false)}
               active={router.pathname == href ?? true}
+              color={color}
             >
               {name}
             </MenuLink>
@@ -72,7 +73,10 @@ const MenuWrap = styled.ul`
       props.isOpenMenu ? "translateX(0%)" : "translateX(100%)"};
     transition: transform 300ms linear;
     flex-direction: column;
-    background: ${(props) => props.theme.colors.white};
+    background: ${(props) =>
+      props.color === "white"
+        ? props.theme.colors.blue
+        : props.theme.colors.white};
     will-change: transform;
     width: 100%;
     position: fixed;
@@ -93,11 +97,29 @@ const MenuLink = styled.a`
   white-space: nowrap;
   font-size: ${rem(15)};
   line-height: ${rem(18)};
-  color: ${(props) =>
-    props.active ? props.theme.colors.primary : props.theme.colors.black};
   text-decoration: none;
   font-weight: 900;
   cursor: pointer;
+  ${(props) => {
+    if (props.active && props.color !== "white") {
+      return `
+          color: ${props.theme.colors.primary};
+        `;
+    } else if (props.active && props.color === "white") {
+      return `
+        color: ${props.theme.colors.white};
+        text-decoration: underline;
+      `;
+    } else if (!props.active && props.color === "white") {
+      return `
+        color: white;
+      `;
+    } else {
+      return `
+          color: ${props.theme.colors.black};
+        `;
+    }
+  }}
 `;
 
 export default Menu;
