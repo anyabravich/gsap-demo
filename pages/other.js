@@ -1,3 +1,4 @@
+import AutoCloseCards from "@/components/AutoCloseCards";
 import FlipCards from "@/components/FlipCards";
 import Nav from "@/components/Nav";
 import OtherWrap from "@/components/OtherWrap";
@@ -25,6 +26,7 @@ export default function Other() {
         <Snow />
         <OtherWrap>
           <FlipCards />
+          <AutoCloseCards />
         </OtherWrap>
       </OtherWrapper>
     </>

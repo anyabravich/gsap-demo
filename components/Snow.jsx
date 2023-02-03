@@ -3,9 +3,9 @@ import gsap, { Power3 } from "gsap";
 
 const Snow = () => {
   useEffect(() => {
-    let numFlakes = 50;
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    const numFlakes = 50;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     function createFlake() {
       let flake = document.createElement("div");

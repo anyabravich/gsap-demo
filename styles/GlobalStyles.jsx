@@ -49,38 +49,62 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .flake {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-}
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+  }
 
-.flake1 {
-  background-image: url("https://assets.codepen.io/32887/flake1.svg");
-}
+  .flake1 {
+    background-image: url("https://assets.codepen.io/32887/flake1.svg");
+  }
 
-.flake2 {
-  background-image: url("https://assets.codepen.io/32887/flake2.svg");
-}
+  .flake2 {
+    background-image: url("https://assets.codepen.io/32887/flake2.svg");
+  }
 
-.flake3 {
-  background-image: url("https://assets.codepen.io/32887/flake3.svg");
-}
+  .flake3 {
+    background-image: url("https://assets.codepen.io/32887/flake3.svg");
+  }
 
-.flake4 {
-  background-image: url("https://assets.codepen.io/32887/flake4.svg");
-}
+  .flake4 {
+    background-image: url("https://assets.codepen.io/32887/flake4.svg");
+  }
 
-.wrapperSnow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: -100px;
-  height: calc(100% + 100px);
-  width: 100%;
-  background: #1c7ed6;
-  overflow: hidden;
-}
+  .wrapperSnow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -100px;
+    height: calc(100% + 100px);
+    width: 100%;
+    background: #1c7ed6;
+    overflow: hidden;
+  }
+
+  .expander {
+    width:50px;
+    height:40vh;
+    border-radius:25px;
+    background:black;
+    overflow:hidden;
+    margin-top:20px;
+    margin-left:20px;
+  }
+
+  .close {
+    font-family:sans-serif;
+    font-size:18px;
+    line-height:40px;
+    transform:translate(155px, 5px);
+    background:rgba(255,255,255,0.6);
+    border-radius:20px;
+    height:40px;
+    width:40px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:1px 1px 4px #333;
+  }
 `;
 
 export default GlobalStyle;
