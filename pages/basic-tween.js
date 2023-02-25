@@ -1,7 +1,5 @@
 import Card from "@/components/Card";
 import Cards from "@/components/Cards";
-import Nav from "@/components/Nav";
-import { userMenu } from "@/context/menu";
 import { cards } from "@/data/cards";
 import gsap from "gsap";
 import hljs from "highlight.js";
@@ -14,7 +12,6 @@ export default function Basic() {
     hljs.highlightAll();
   }, []);
 
-  const { isOpenMenu, setIsOpenMenu } = userMenu();
   const [tweenTo, setTweenTo] = useState(null);
   const [tweenFrom, setTweenFrom] = useState(null);
   const [tweenFromTo, setTweenFromTo] = useState(null);
@@ -212,7 +209,6 @@ export default function Basic() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
       <Cards>
         {cards.map((props, index) => (
           <Card

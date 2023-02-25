@@ -6,6 +6,9 @@ import GitBookButton from "@/components/GitBookButton";
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 import MenuProvider from "../context/menu";
+import Nav from "@/components/Nav";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 export default function App({ Component, pageProps }) {
   const [isLoad, setIsLoad] = useState(true);
@@ -37,12 +40,11 @@ export default function App({ Component, pageProps }) {
               visible={true}
             />
           ) : (
-            <>
-              <MenuProvider>
-                <Component {...pageProps} />
-              </MenuProvider>
+            <Provider store={store}>
+              <Nav />
+              <Component {...pageProps} />
               <GitBookButton />
-            </>
+            </Provider>
           )}
         </main>
       </Theme>

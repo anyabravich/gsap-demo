@@ -1,13 +1,16 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { rem } from "polished";
 import Link from "next/link";
 import { Inter } from "@next/font/google";
 import useWidth from "@/hooks/useWidth";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { openMenu } from "@/store/menuSlice";
 const inter = Inter({ subsets: ["latin"] });
 
-const Menu = ({ isOpenMenu, setIsOpenMenu, color }) => {
+const Menu = ({ color, isOpenMenu }) => {
+  const dispatch = useDispatch();
   const menuWrap = useRef(null);
   const resize = useWidth();
   const router = useRouter();
@@ -15,7 +18,7 @@ const Menu = ({ isOpenMenu, setIsOpenMenu, color }) => {
   useEffect(() => {
     if (resize <= 813) {
       menuWrap.current.style.display = "none";
-      setIsOpenMenu(false);
+      dispatch(openMenu({ isOpenMenu: true }));
       setTimeout(() => {
         menuWrap.current.style.display = "flex";
       }, 1);
@@ -51,7 +54,7 @@ const Menu = ({ isOpenMenu, setIsOpenMenu, color }) => {
         <MenuItem key={name}>
           <MenuLinkBox className={inter.className} href={href} legacyBehavior>
             <MenuLink
-              onClick={() => setIsOpenMenu(false)}
+              onClick={() => dispatch(openMenu({ isOpenMenu: true }))}
               active={router.pathname == href ?? true}
               color={color}
             >

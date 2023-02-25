@@ -5,18 +5,19 @@ import { rem } from "polished";
 import Container from "./Container";
 import Menu from "./Menu";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { openMenu } from "../store/menuSlice";
 
-const Nav = ({ isOpenMenu, setIsOpenMenu, color }) => {
+const Nav = ({ color }) => {
+  const isOpenMenu = useSelector((state) => state.menu.menu);
+  const dispatch = useDispatch();
+
   return (
     <NavWrap>
       <Container>
         <NavInner>
           <Logo />
-          <Menu
-            isOpenMenu={isOpenMenu}
-            setIsOpenMenu={setIsOpenMenu}
-            color={color}
-          />
+          <Menu color={color} isOpenMenu={isOpenMenu} />
           <Site
             color={color}
             href={"https://greensock.com/gsap/"}
@@ -25,9 +26,8 @@ const Nav = ({ isOpenMenu, setIsOpenMenu, color }) => {
           <MenuButton
             href={"https://greensock.com/gsap/"}
             target="_blank"
-            onClick={() => setIsOpenMenu(!isOpenMenu)}
-            isOpenMenu={isOpenMenu}
             color={color}
+            onClick={() => dispatch(openMenu({ isOpenMenu }))}
           >
             {isOpenMenu ? (
               <MenuButtonIcon
