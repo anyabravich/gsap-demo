@@ -1,10 +1,7 @@
-import Nav from "@/components/Nav";
 import Rainbow from "@/components/Rainbow";
-import { userMenu } from "@/context/menu";
 import Head from "next/head";
 
 export default function Beyond() {
-  const { isOpenMenu, setIsOpenMenu } = userMenu();
   return (
     <>
       <Head>
@@ -13,7 +10,6 @@ export default function Beyond() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <Nav isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         <Rainbow />
       </>
     </>

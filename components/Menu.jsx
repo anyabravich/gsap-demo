@@ -10,6 +10,7 @@ import { openMenu } from "@/store/menuSlice";
 const inter = Inter({ subsets: ["latin"] });
 
 const Menu = ({ color, isOpenMenu }) => {
+  console.log(color);
   const dispatch = useDispatch();
   const menuWrap = useRef(null);
   const resize = useWidth();
@@ -45,24 +46,32 @@ const Menu = ({ color, isOpenMenu }) => {
     {
       href: "/other",
       name: "Other",
+      disabled: true,
     },
   ];
 
   return (
     <MenuWrap isOpenMenu={isOpenMenu} ref={menuWrap} color={color}>
-      {links.map(({ href, name }) => (
-        <MenuItem key={name}>
-          <MenuLinkBox className={inter.className} href={href} legacyBehavior>
-            <MenuLink
-              onClick={() => dispatch(openMenu({ isOpenMenu: true }))}
-              active={router.pathname == href ?? true}
-              color={color}
-            >
-              {name}
-            </MenuLink>
-          </MenuLinkBox>
-        </MenuItem>
-      ))}
+      {links.map(
+        ({ href, name, disabled }) =>
+          !disabled && (
+            <MenuItem key={name}>
+              <MenuLinkBox
+                className={inter.className}
+                href={href}
+                legacyBehavior
+              >
+                <MenuLink
+                  onClick={() => dispatch(openMenu({ isOpenMenu: true }))}
+                  active={router.pathname == href ?? true}
+                  color={color}
+                >
+                  {name}
+                </MenuLink>
+              </MenuLinkBox>
+            </MenuItem>
+          )
+      )}
     </MenuWrap>
   );
 };

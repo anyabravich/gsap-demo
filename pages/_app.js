@@ -5,7 +5,6 @@ const inter = Inter({ subsets: ["latin"] });
 import GitBookButton from "@/components/GitBookButton";
 import { BallTriangle } from "react-loader-spinner";
 import { useEffect, useState } from "react";
-import MenuProvider from "../context/menu";
 import Nav from "@/components/Nav";
 import { Provider } from "react-redux";
 import store from "@/store";
