@@ -1,4 +1,3 @@
-import { rgba } from "polished";
 import { ThemeProvider } from "styled-components";
 
 const theme = {
