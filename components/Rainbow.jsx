@@ -71,7 +71,7 @@ const RainbowInner = styled.div`
   align-items: center;
   justify-content: center;
   height: 25vw;
-  color: #fff;
+  color: ${(props) => props.theme.colors.white};
   background-image: linear-gradient(
       12deg,
       rgba(193, 193, 193, 0.05) 0%,

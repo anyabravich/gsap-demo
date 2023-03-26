@@ -34,7 +34,7 @@ const BtnBox = styled.div`
 const Btn = styled.button`
   border: none;
   background: #37b24d;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.white};
   border-radius: ${rem(10)};
   padding: 5px 15px;
   font-weight: 600;

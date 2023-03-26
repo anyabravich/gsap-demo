@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     right: ${rem(20)};
     padding: 10px 30px;
     min-width: ${rem(100)};
-    background: #FFFFFF;
+    background: #ffffff;
     border-left: 4px solid #37B24D;
     font-family: 'Inter', sans-serif;
     font-weight: 500;

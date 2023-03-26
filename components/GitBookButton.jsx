@@ -23,7 +23,7 @@ const GitBookButtonWrap = styled.a`
   border: none;
   width: ${rem(75)};
   height: ${rem(75)};
-  border: 1px solid #ffffff;
+  border: 1px solid ${(props) => props.theme.colors.white};
   box-shadow: 0px 0px 30px 4px rgba(120, 120, 120, 0.08);
   background: ${(props) => props.theme.colors.white};
   border-radius: 50%;

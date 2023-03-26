@@ -1,5 +1,4 @@
 import LayeredPinning from "@/components/LayeredPinning";
-import Nav from "@/components/Nav";
 import ScrollBlock from "@/components/ScrollBlock";
 import ScrollBlockColorLine from "@/components/ScrollBlockColorLine";
 import Head from "next/head";

@@ -158,7 +158,7 @@ const TimelineOctopusTime = styled.div`
   height: 40px;
   width: 200px;
   background: blue;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.white};
   font-weight: 700;
   font-size: 20px;
   @media (max-width: 700px) {

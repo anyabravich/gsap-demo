@@ -70,7 +70,7 @@ const ScrollBlockFullScreen = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.white};
   font-weight: 900;
 `;
 
